@@ -18,13 +18,13 @@ public class ServletDemo extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.doGet(req, resp);
-        doPost(req, resp);
         System.out.println("doGet()..........");
+        doPost(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doPost()......");
         req.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
 
@@ -42,6 +42,7 @@ public class ServletDemo extends HttpServlet {
 
     @Override
     public void destroy() {
+        System.out.println("helo7999777");
         super.destroy();
         System.out.println("destroy()........");
     }

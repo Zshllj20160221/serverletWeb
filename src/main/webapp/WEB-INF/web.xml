@@ -4,10 +4,35 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <filter>
+        <filter-name>filterDemo</filter-name>
+        <filter-class>com.zsh.filter.FilterDemo</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>version</param-name>
+            <param-value>1.0</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterDemo</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
+    <filter>
+        <filter-name>logFilter</filter-name>
+        <filter-class>com.zsh.filter.LogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>logFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>servletDemo</servlet-name>
         <servlet-class>com.zsh.ServletDemo</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>servletDemo</servlet-name>
